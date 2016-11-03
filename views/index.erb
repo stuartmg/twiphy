@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Twiphy - Send Giphy results via Twilio</title>
+  <style>
+  main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    font-size: 400;
+    line-height: 140%;
+    height: 100vh;
+    justify-content: center;
+    margin: 0 auto;
+    width: 400px;
+  }
+  form {
+    background-color: #efefef;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+  }
+  label {
+    display: block;
+  }
+  input {
+    box-sizing: border-box;
+    font-size: 1.3rem;
+    font-size: 400;
+    line-height: 140%;
+    padding: .25em .5em;
+    width: 90%;
+  }
+  input[type=submit] {
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: #C61C6F;
+    color: white;
+    background-color: #2D8BCF;
+  }
+  #flash {
+    width: 100%;
+  }
+  .flash {
+    border-radius: 4px;
+    display: block;
+    font-weight: bold;
+    padding: .5em 2em;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  .notice {
+    background-color: rgba(0, 255, 0, 0.2);
+    border: 1px solid green;
+  }
+  .alert {
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 1px solid red;
+  }
+  </style>
+</head>
+<body>
+  <main>
+    <%= styled_flash %>
+    <form action="/message" method="post">
+      <p>
+        <label for="query">GIF Search</label>
+        <input type="text" name="query" value="<%= params[:query] %>">
+      </p>
+      <p>
+        <label for="phone">Phone Number</label>
+        <input type="text" name="phone">
+      </p>
+      <p>
+        <input type="submit" value="GIF ME!">
+      </p>
+    </form>
+  </main>
+</body>
+</html>
